@@ -1,0 +1,10 @@
+name: InstantRespawns
+version: '1.0'
+main: site.besd.instantRespawns.InstantRespawns
+api-version: '1.21'
+authors: [ Besd ]
+description: Instantly respawn after death mostly used on PvP servers.
+website: besd.site
+commands:
+  irtoggleall:
+  irtoggle:
