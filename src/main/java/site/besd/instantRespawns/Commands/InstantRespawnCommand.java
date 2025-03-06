@@ -10,11 +10,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import site.besd.instantRespawns.InstantRespawns;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InstantRespawnCommand implements CommandExecutor, TabCompleter {
+
+    private final InstantRespawns plugin;
+
+    public InstantRespawnCommand(InstantRespawns plugin) {
+        this.plugin = plugin;
+    }
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 0) {
@@ -24,10 +32,10 @@ public class InstantRespawnCommand implements CommandExecutor, TabCompleter {
 
         Player player = (Player) sender;
         if (args[0].equalsIgnoreCase("toggle")) {
-
+            plugin.getConfig().set("instantRespawns." + player.getUniqueId().toString(), true);
         }
         if (args[0].equalsIgnoreCase("reload")) {
-
+            plugin.reloadConfig();
         }
         if (args[0].equalsIgnoreCase("disable")) {
 
