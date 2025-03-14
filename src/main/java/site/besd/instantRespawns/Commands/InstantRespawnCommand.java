@@ -38,10 +38,22 @@ public class InstantRespawnCommand implements CommandExecutor, TabCompleter {
             plugin.reloadConfig();
         }
         if (args[0].equalsIgnoreCase("disable")) {
+            if (plugin.getConfig().getBoolean("Enabled")) {
+               plugin.getConfig().set("Enabled", false);
+               plugin.saveConfig();
+               plugin.reloadConfig();
+
+               player.sendMessage(ChatColor.GREEN + "InstantRespawns plugin has been disabled.");
+            }
 
         }
         if (args[0].equalsIgnoreCase("enable")) {
-
+            if (plugin.getConfig().getBoolean("Enabled")) {
+                plugin.getConfig().set("Enabled", true);
+                plugin.saveConfig();
+                plugin.reloadConfig();
+                player.sendMessage(ChatColor.GREEN + "InstantRespawns plugin has been enabled.");
+            }
         }
 
         return true;

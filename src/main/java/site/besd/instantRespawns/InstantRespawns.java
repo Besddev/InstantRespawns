@@ -19,7 +19,8 @@ public final class InstantRespawns extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // this for saving for diff file
+        // this for saving to diff file
+
         /*file = new File(plugin.getDataFolder(), fileName);
         conf = YamlConfiguration.loadConfiguration(file);*/
 
