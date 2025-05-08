@@ -25,6 +25,11 @@ public class InstantRespawnCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(ChatColor.RED + "Only players can execute this command.");
+        }
+
+
         if (args.length == 0) {
             sender.sendMessage(ChatColor.RED + "Usage: /instantrespawn < toggle / reload / disable / enable >");
             return true;

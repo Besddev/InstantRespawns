@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import site.besd.instantRespawns.Commands.InstantRespawnCommand;
+import site.besd.instantRespawns.Listeners.DeathListener;
 
 import java.io.File;
 
@@ -27,7 +28,7 @@ public final class InstantRespawns extends JavaPlugin {
         // Commands
         getCommand("ir").setExecutor(new InstantRespawnCommand(this));
         // Listeners
-
+        getServer().getPluginManager().registerEvents(new DeathListener(), this);
     }
 
     @Override
